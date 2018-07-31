@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui" >
+<h:head>
+
+</h:head>
+<h:body style="background-image: url(resources/image/Closeup.jpg);background-repeat: no-repeat; background-size: cover; font-family: sans-serif;">
+    <h:panelGroup layout="block" styleClass="content" style="position: absolute;transform: translate(-50%,-50%); top: 2%; left: 50%;">
+        <h:panelGroup layout="block" styleClass="content" style=";height: 40px; width:707px;padding: 0px 0px; position: absolute;transform: translate(-50%,-50%); top: 50%; left: 50%;background: rgba(1, 1, 1, .0);font-family: 'Arial Black'; font-size: 11px ">
+            <p:messages id="messages" closable="true"> </p:messages>
+        </h:panelGroup>
+    </h:panelGroup>
+    <h:panelGroup layout="block" styleClass="content" style="position: absolute;transform: translate(-50%,-50%); top: 50%; left: 50%;">
+        <h:form id="form" >
+
+            <p:growl id="msgs" showDetail="true" />
+
+
+
+
+            <p:toolbar style="margin:40px 40px; background: rgba(1, 1, 1, .8);width: 900px; border: none;border: 2px solid#ff7904; color: darkkhaki; font-family: Calibri ">
+                <f:facet name="left">
+                    <p:outputLabel value="You are :"/>
+                    <p:outputLabel value="#{memberBean.firstname}"/>
+                </f:facet>
+                <f:facet name="right">
+                    <p:commandButton value="Navigate"/>
+
+                </f:facet>
+            </p:toolbar>
+            <p:panel header="STUDENT" style="margin:40px 40px; background: rgba(1, 1, 1, .8);width: 900px; border: none;border: 2px solid#ff7904; color: darkkhaki; font-family: Calibri ">
+                  <p:accordionPanel>
+                      <p:tab title="Edit">My personel informations</p:tab>
+                      <p:tab title="Courses">My courses</p:tab>
+                      <p:tab title="Absence">My absence</p:tab>
+                  </p:accordionPanel>
+
+
+
+
+
+
+            </p:panel>
+
+
+        </h:form>
+    </h:panelGroup>
+</h:body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head> <title> Index </title>
+    <style type="text/css">
+
+    </style>
+
+</h:head>
+<h:body style="background-image: url(resources/css/bb.jpg);background-repeat: no-repeat;background-size: cover; font-family: sans-serif;">
+    <h:panelGroup layout="block" styleClass="content" style=" position: absolute;transform: translate(-50%,-50%); top: 50%; left: 50%;height: 500px; width:100%; background: rgba(1, 1, 1, .7) ;border-top: 5px solid #777777;border-bottom: 5px solid #777777;   ">
+    <h:panelGroup layout="block" styleClass="content" style=";height: 500px; width:460px;padding: 0px 0px; position: absolute;transform: translate(-50%,-50%); top: 50%; left: 50%;background: rgba(1, 1, 1, .0);font-family: 'Arial Black'; font-size: 11px ">
+    <p:messages id="messages" closable="true"> </p:messages>
+        <h:form id="form" >
+
+            <h:panelGroup layout="block" styleClass="content" style="padding: 60px 60px; position: absolute;transform: translate(-50%,-50%); top: 50%; left: 50%;background: rgba(1, 1, 1, .6) ;border-radius:20px; border: 1px solid white; color: darkkhaki; font-family: Calibri ">
+
+            <h:graphicImage library="image" name="sso.gif" styleClass="user" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid white;
+          overflow: hidden; position: absolute; top: calc(-100px/2); left: calc(50% - 50px); "/>
+                <h:panelGrid columns="2" style="vertical-align: top; color: darkkhaki; font-family: Calibri;" >
+                    <img src="resources/small/user.png" alt="photo" />
+                    <h:inputText id="email" value="#{loginController.username}" style="border: none;border-radius: 6px; border: 1px solid #ff2;
+           background: rgba(255,255,255, .1); outline: none; height: 30px; color: #fff; font-size: 16px;width: 300px;"/>
+
+                    <img src="resources/small/padlock.png" alt="photo" />
+                    <h:inputSecret id="password" value="#{loginController.password}" style="border: none;border-radius: 6px; border: 1px solid #ff2;
+           background: rgba(255,255,255, .1); outline: none; height: 30px; color: #fff; font-size: 16px;width: 300px;"/>
+                    <h:column/>
+                    <h:commandButton icon="ui-icon-key" value="Log In" update="grid"  action="#{loginController.checkValidUser}" style="border: none; outline: none; border: 1px solid #111; height: 30px; color: #000000; font-size: 16px; background: #ffff22;border-radius: 6px; cursor: pointer; width: 100%; "/>
+
+                </h:panelGrid>
+                <br/><br/>
+                <h:commandLink value="New student" action="#{loginController.newUser}" style="color: darkorange; font-size: 10px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"/>
+            </h:panelGroup>
+            </h:form>
+    </h:panelGroup>
+    </h:panelGroup>
+</h:body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

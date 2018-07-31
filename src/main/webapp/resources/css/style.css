@@ -1,0 +1,28 @@
+body{
+    margin: 0px;
+    background: white;
+}
+#content{
+    padding: 0px 0px;
+    top: 200px;
+    left: 0px;
+    width: 100px;
+    height: 800px;
+    background: red;
+
+}
+#title{
+    padding: 0px;
+    margin: 0px;
+    height: 40px;
+    width: 600px;
+    background: black;
+
+}
+#register{
+    height: 500px;
+    top: 60px;
+    padding: 20px 20px;
+    background: darkorange;
+
+}

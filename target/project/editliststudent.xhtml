@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui" >
+<h:head>
+
+</h:head>
+<h:body style="background-image: url(resources/image/Closeup.jpg);background-repeat: no-repeat; background-size: cover; font-family: Arial">
+    <h:panelGroup layout="block" styleClass="content" style="position: absolute;transform: translate(-50%,-50%); top: 60%; left: 50%;">
+        <p:messages id="messages" closable="true"> </p:messages>
+        <h:form id="form" >
+            <h:panelGroup styleClass="center" >
+            <p:menubar style="margin:40px 40px;width: 1400px;background: rgba(1, 1, 1, .8);border: 2px solid#ff7904;">
+                <p:submenu label="Student" icon="ui-icon-pencil" >
+                    <p:menuitem value="Add" url="liststudent.xhtml" />
+                    <p:menuitem value="Edit" url="#" />
+                </p:submenu>
+
+                <p:submenu label="Teacher" icon="ui-icon-pencil" >
+                    <p:menuitem value="Add" url="listTeacher.xhtml" />
+                    <p:menuitem value="Edit" url="editlistTeacher.xhtml"/>
+                </p:submenu>
+
+                <p:submenu label="Courses" icon="ui-icon-pencil" >
+                    <p:menuitem value="Add/Edit" url="add-courses.xhtml" />
+                </p:submenu>
+
+                <p:submenu label="Absence" icon="ui-icon-document">
+                    <p:menuitem value="by student" url="absencebystudent.xhtml" />
+
+                    <p:menuitem value="by courses" url="#" />
+                </p:submenu>
+
+
+                <p:submenu label="Quit" icon="ui-icon-document">
+                    <p:menuitem value="log out" url="index.xhtml" />
+                </p:submenu>
+            </p:menubar>
+
+                <p:panel header="EDIT STUDENT" style=" background: rgba(1, 1, 1, .8); border: none;border: 2px solid#ff7904; color: darkkhaki; font-family: Calibri ">
+
+                <h:panelGrid columns="8" style="vertical-align: top; color: darkkhaki; font-family: Calibri" >
+
+                    <h:outputText for="personnumber" value="Personal number"/>
+                    <h:inputText id="personnumber" value="#{memberBean.pnumber}" style="border: none;border-radius: 6px; border: 1px solid #ff2;
+           background: rgba(255,255,255, .1); outline: none; height: 30px; color: #fff; font-size: 16px;width: 250px;"/>
+
+                    <h:outputText for="firstname" value="First name"/>
+                    <h:inputText id="firstname" value="#{memberBean.firstname}" style="border: none;border-radius: 6px; border: 1px solid #ff2;
+           background: rgba(255,255,255, .1); outline: none; height: 30px; color: #fff; font-size: 16px;width: 250px;"/>
+                    <h:outputText for="lastname" value="Last name"/>
+                    <h:inputText id="lastname" value="#{memberBean.lastname}" style="border: none;border-radius: 6px; border: 1px solid #ff2;
+           background: rgba(255,255,255, .1); outline: none; height: 30px; color: #fff; font-size: 16px;width: 250px;"/>
+
+                    <h:outputText for="date" value="Date of Birth" />
+                    <h:inputText id="date" value="#{memberBean.dateOfBirth}" style="border: none;border-radius: 6px; border: 1px solid #ff2;
+           background: rgba(255,255,255, .1); outline: none; height: 30px; color: #fff; font-size: 16px;width: 250px;">
+                        </h:inputText>
+                    <h:outputText for="phonenumber" value="Phone Number" />
+                    <h:inputText id="phonenumber" value="#{memberBean.telNumber}" style="border: none;border-radius: 6px; border: 1px solid #ff2;
+           background: rgba(255,255,255, .1); outline: none; height: 30px; color: #fff; font-size: 16px;width: 250px;"/>
+                    <h:outputText for="adress" value="Address" />
+                    <h:inputText id="adress" value="#{memberBean.adress}" style="border: none;border-radius: 6px; border: 1px solid #ff2;
+           background: rgba(255,255,255, .1); outline: none; height: 30px; color: #fff; font-size: 16px;width: 250px;"/>
+                    <h:outputText for="postzip" value="ZIP code" />
+                    <h:inputText id="postzip" value="#{memberBean.postzip}" style="border: none;border-radius: 6px; border: 1px solid #ff2;
+           background: rgba(255,255,255, .1); outline: none; height: 30px; color: #fff; font-size: 16px;width: 250px;"/>
+                    <h:outputText for="city" value="City"/>
+                    <h:inputText id="city" value="#{memberBean.city}" style="border: none;border-radius: 6px; border: 1px solid #ff2;
+           background: rgba(255,255,255, .1); outline: none; height: 30px; color: #fff; font-size: 16px;width: 250px;"/>
+                    <h:inputHidden value="#{memberBean.id_member}"  />
+                    <h:inputHidden value="#{memberBean.id_user}"  />
+                    <h:column/><h:column/><h:column/><h:column/><h:column/>
+                    <h:commandButton id="valider" action="#{memberBean.addStudent}" value="Update" update="growl" style="border: none; outline: none; color: #000; font-size: 16px; background: #ffc00b; cursor: pointer; border-radius: 5px; width: 250px; height: 30px; margin-top: 15px"/>
+
+
+            </h:panelGrid>
+            <p:separator/>
+
+
+
+
+                    <p:dataTable id="dataTable" var="s" value="#{memberBean.studentFilter}"
+                                 paginator="true" rows="5">
+                        <f:facet name="header">
+                            <h:inputText value="#{memberBean.filter}"/>
+                            <h:commandButton action="editliststudent" value="Refresh"/>
+                        </f:facet>
+
+                        <p:column style="width: 50px">
+                            <f:facet name="header">
+                                <h:outputText value="Id" />
+                            </f:facet>
+                            <h:outputText value="#{s.id}" />
+                        </p:column>
+
+                        <p:column style="width: 150px">
+                            <f:facet name="header">
+                                <h:outputText value="Personal Number" />
+                            </f:facet>
+                            <h:outputText value="#{s.pnumber}" />
+                        </p:column>
+
+                        <p:column style="width: 100px">
+                            <f:facet name="header">
+                                <h:outputText value="FirstName" />
+                            </f:facet>
+                            <h:outputText value="#{s.firstname}" />
+                        </p:column>
+
+                        <p:column style="width: 100px">
+                            <f:facet name="header">
+                                <h:outputText value="LastName" />
+                            </f:facet>
+                            <h:outputText value="#{s.lastname}" />
+                        </p:column>
+
+                        <p:column style="width: 100px">
+                            <f:facet name="header">
+                                <h:outputText value="Date Of Birth" />
+                            </f:facet>
+                            <h:outputText value="#{s.dateOfBirth}" />
+                        </p:column>
+                        <p:column style="width: 100px">
+                            <f:facet name="header">
+                                <h:outputText value="Phone Number" />
+                            </f:facet>
+                            <h:outputText value="#{s.telNumber}" />
+                        </p:column>
+
+                        <p:column style="width: 100px">
+                            <f:facet name="header">
+                                <h:outputText value="Address" />
+                            </f:facet>
+                            <h:outputText value="#{s.adress}" />
+                        </p:column>
+
+                        <p:column style="width: 80px">
+                            <f:facet name="header">
+                                <h:outputText value="Zip Code" />
+                            </f:facet>
+                            <h:outputText value="#{s.postzip}" />
+                        </p:column>
+
+                        <p:column style="width: 80px">
+                            <f:facet name="header">
+                                <h:outputText value="City" />
+                            </f:facet>
+                            <h:outputText value="#{s.city}" />
+                        </p:column>
+
+
+                        <p:column style="width: 100px">
+                            <h:commandButton value ="edit" action="#{memberBean.editStudent(s.id)}" />
+                        </p:column>
+
+                    </p:dataTable>
+
+                    <p:blockUI block="dataTable" trigger="dataTable">
+                        LOADING<br />
+                        <p:graphicImage name="demo/images/ajaxloadingbar.gif"/>
+                    </p:blockUI>
+
+
+
+
+</p:panel>
+
+
+</h:panelGroup>
+        </h:form>
+    </h:panelGroup>
+</h:body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
