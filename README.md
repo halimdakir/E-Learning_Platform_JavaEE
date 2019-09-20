@@ -1,1 +1,1 @@
-# Lexicon-JavaProject-June2018
+# JavaProject-June2018
