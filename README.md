@@ -3,4 +3,4 @@
 # This web application enables to connect as:
 - Admin: Add/Delete teacher, student, courses.
 - Teacher: Add  attendance.
-- Student: Register for one course or many.
+- Student: Register for one course or many, see attendence.
